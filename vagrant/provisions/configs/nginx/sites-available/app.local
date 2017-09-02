@@ -1,0 +1,15 @@
+server {
+    listen 10.255.255.101:80;
+
+    server_name app.local;
+    root /vagrant/public;
+
+    access_log /var/log/nginx/access.log combined;
+    error_log /var/log/nginx/error.log;
+
+    include /etc/nginx/snippets/access.conf;
+    include /etc/nginx/snippets/static.conf;
+    include /etc/nginx/snippets/php-fpm.conf;
+
+    client_max_body_size 2g;
+}
